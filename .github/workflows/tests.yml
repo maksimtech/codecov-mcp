@@ -1,0 +1,52 @@
+name: Tests
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+permissions:
+  contents: read
+jobs:
+  test:
+    name: test (${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Keep in sync with requires-python in pyproject.toml
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v7
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: pip install -e ".[dev]"  # NOSONAR - trusted internal project
+      - name: Run test suite
+        # Every fixture is a recorded response and respx intercepts the rest:
+        # nothing here reaches api.codecov.io, so a red run means this code
+        # changed rather than that a service did.
+        run: pytest tests/ -v
+      - name: Lint (ruff)
+        run: ruff check codecov_mcp tests
+      - name: Type check (mypy)
+        run: mypy codecov_mcp
+
+  summary:
+    # One check name that survives matrix changes, for a branch ruleset to
+    # require. always(): a skipped required check counts as passed, so this has
+    # to run even when the matrix fails, and fail explicitly in that case.
+    name: Tests
+    needs: [test]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: All test jobs succeeded
+        env:
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          echo "Results: $RESULTS"
+          for result in $RESULTS; do
+            [ "$result" = "success" ] || { echo "::error::A required test job ended with: $result"; exit 1; }
+          done
