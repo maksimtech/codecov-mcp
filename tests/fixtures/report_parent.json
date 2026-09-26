@@ -1,0 +1,268 @@
+{
+  "url": "https://api.codecov.io/api/v2/github/maksimtech/repos/apkradar/report/?sha=1e90d153404bd173b794a56cef254eb92ef5e4e6",
+  "status": 200,
+  "body": {
+    "totals": {
+      "files": 12,
+      "lines": 1300,
+      "hits": 1243,
+      "misses": 57,
+      "partials": 0,
+      "coverage": 95.61,
+      "branches": 0,
+      "methods": 0,
+      "messages": 0,
+      "sessions": 1,
+      "complexity": 0.0,
+      "complexity_total": 0.0,
+      "complexity_ratio": 0,
+      "diff": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0
+      ]
+    },
+    "files": [
+      {
+        "name": "apkradar/__init__.py",
+        "totals": {
+          "files": 0,
+          "lines": 1,
+          "hits": 1,
+          "misses": 0,
+          "partials": 0,
+          "coverage": 100.0,
+          "branches": 0,
+          "methods": 0,
+          "messages": 0,
+          "sessions": 0,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        }
+      },
+      {
+        "name": "apkradar/__main__.py",
+        "totals": {
+          "files": 0,
+          "lines": 3,
+          "hits": 0,
+          "misses": 3,
+          "partials": 0,
+          "coverage": 0.0,
+          "branches": 0,
+          "methods": 0,
+          "messages": 0,
+          "sessions": 0,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        }
+      },
+      {
+        "name": "apkradar/cli.py",
+        "totals": {
+          "files": 0,
+          "lines": 416,
+          "hits": 403,
+          "misses": 13,
+          "partials": 0,
+          "coverage": 96.87,
+          "branches": 0,
+          "methods": 0,
+          "messages": 0,
+          "sessions": 0,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        }
+      },
+      {
+        "name": "apkradar/excel.py",
+        "totals": {
+          "files": 0,
+          "lines": 92,
+          "hits": 92,
+          "misses": 0,
+          "partials": 0,
+          "coverage": 100.0,
+          "branches": 0,
+          "methods": 0,
+          "messages": 0,
+          "sessions": 0,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        }
+      },
+      {
+        "name": "apkradar/extractor.py",
+        "totals": {
+          "files": 0,
+          "lines": 69,
+          "hits": 69,
+          "misses": 0,
+          "partials": 0,
+          "coverage": 100.0,
+          "branches": 0,
+          "methods": 0,
+          "messages": 0,
+          "sessions": 0,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        }
+      },
+      {
+        "name": "apkradar/law_cache.py",
+        "totals": {
+          "files": 0,
+          "lines": 58,
+          "hits": 56,
+          "misses": 2,
+          "partials": 0,
+          "coverage": 96.55,
+          "branches": 0,
+          "methods": 0,
+          "messages": 0,
+          "sessions": 0,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        }
+      },
+      {
+        "name": "apkradar/law_checker.py",
+        "totals": {
+          "files": 0,
+          "lines": 85,
+          "hits": 85,
+          "misses": 0,
+          "partials": 0,
+          "coverage": 100.0,
+          "branches": 0,
+          "methods": 0,
+          "messages": 0,
+          "sessions": 0,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        }
+      },
+      {
+        "name": "apkradar/law_fetcher.py",
+        "totals": {
+          "files": 0,
+          "lines": 305,
+          "hits": 273,
+          "misses": 32,
+          "partials": 0,
+          "coverage": 89.5,
+          "branches": 0,
+          "methods": 0,
+          "messages": 0,
+          "sessions": 0,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        }
+      },
+      {
+        "name": "apkradar/scanner.py",
+        "totals": {
+          "files": 0,
+          "lines": 145,
+          "hits": 140,
+          "misses": 5,
+          "partials": 0,
+          "coverage": 96.55,
+          "branches": 0,
+          "methods": 0,
+          "messages": 0,
+          "sessions": 0,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        }
+      },
+      {
+        "name": "apkradar/search_cmd.py",
+        "totals": {
+          "files": 0,
+          "lines": 32,
+          "hits": 32,
+          "misses": 0,
+          "partials": 0,
+          "coverage": 100.0,
+          "branches": 0,
+          "methods": 0,
+          "messages": 0,
+          "sessions": 0,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        }
+      },
+      {
+        "name": "apkradar/sender.py",
+        "totals": {
+          "files": 0,
+          "lines": 40,
+          "hits": 38,
+          "misses": 2,
+          "partials": 0,
+          "coverage": 95.0,
+          "branches": 0,
+          "methods": 0,
+          "messages": 0,
+          "sessions": 0,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        }
+      },
+      {
+        "name": "apkradar/utils.py",
+        "totals": {
+          "files": 0,
+          "lines": 54,
+          "hits": 54,
+          "misses": 0,
+          "partials": 0,
+          "coverage": 100.0,
+          "branches": 0,
+          "methods": 0,
+          "messages": 0,
+          "sessions": 0,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        }
+      }
+    ],
+    "commit_file_url": "https://app.codecov.io/github/maksimtech/apkradar/commit/1e90d153404bd173b794a56cef254eb92ef5e4e6/tree/"
+  },
+  "_trimmed": "line_coverage removed from 12 files to keep the fixture small; the API does send it \u2014 see report_one_file.json"
+}

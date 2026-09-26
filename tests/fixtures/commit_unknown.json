@@ -1,0 +1,7 @@
+{
+  "url": "https://api.codecov.io/api/v2/github/maksimtech/repos/apkradar/commits/774f17e68994bbef5d3bc3d36c260ac81d9740b5/",
+  "status": 404,
+  "body": {
+    "detail": "No Commit matches the given query."
+  }
+}

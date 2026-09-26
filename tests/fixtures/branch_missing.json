@@ -1,0 +1,6 @@
+{
+  "status": 404,
+  "body": {
+    "detail": "No Branch matches the given query."
+  }
+}

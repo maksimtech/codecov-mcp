@@ -1,0 +1,99 @@
+{
+  "url": "https://api.codecov.io/api/v2/github/maksimtech/repos/apkradar/pulls/?page_size=3",
+  "status": 200,
+  "body": {
+    "count": 8,
+    "next": "http://api.codecov.io/api/v2/github/maksimtech/repos/apkradar/pulls/?page=2&page_size=3",
+    "previous": null,
+    "results": [
+      {
+        "pullid": 14,
+        "title": "build(deps): bump docker/setup-qemu-action from 3 to 4",
+        "base_totals": {
+          "files": 9,
+          "lines": 721,
+          "hits": 705,
+          "misses": 16,
+          "partials": 0,
+          "coverage": 97.78,
+          "branches": 0,
+          "methods": 0,
+          "sessions": 1,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        },
+        "head_totals": null,
+        "updatestamp": "2026-09-19T16:06:01.371642Z",
+        "state": "merged",
+        "ci_passed": null,
+        "author": {
+          "service": "github",
+          "username": "dependabot[bot]",
+          "name": "dependabot[bot]"
+        },
+        "patch": null
+      },
+      {
+        "pullid": 13,
+        "title": "build(deps): bump docker/login-action from 3 to 4",
+        "base_totals": {
+          "files": 9,
+          "lines": 721,
+          "hits": 705,
+          "misses": 16,
+          "partials": 0,
+          "coverage": 97.78,
+          "branches": 0,
+          "methods": 0,
+          "sessions": 1,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        },
+        "head_totals": null,
+        "updatestamp": "2026-09-19T16:06:11.171961Z",
+        "state": "merged",
+        "ci_passed": null,
+        "author": {
+          "service": "github",
+          "username": "dependabot[bot]",
+          "name": "dependabot[bot]"
+        },
+        "patch": null
+      },
+      {
+        "pullid": 12,
+        "title": "build(deps): bump SonarSource/sonarqube-scan-action from 6 to 7",
+        "base_totals": {
+          "files": 9,
+          "lines": 721,
+          "hits": 705,
+          "misses": 16,
+          "partials": 0,
+          "coverage": 97.78,
+          "branches": 0,
+          "methods": 0,
+          "sessions": 1,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        },
+        "head_totals": null,
+        "updatestamp": "2026-09-19T16:06:18.373673Z",
+        "state": "merged",
+        "ci_passed": null,
+        "author": {
+          "service": "github",
+          "username": "dependabot[bot]",
+          "name": "dependabot[bot]"
+        },
+        "patch": null
+      }
+    ],
+    "total_pages": 3
+  }
+}

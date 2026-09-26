@@ -1,0 +1,298 @@
+{
+  "status": 200,
+  "body": {
+    "name": "main",
+    "updatestamp": "2026-09-25T23:57:31.797977Z",
+    "head_commit": {
+      "commitid": "f65ab3f50ca81475b1a4d84262932cde174a3749",
+      "message": "fix(tests): declare PyYAML, which the suite had been borrowing\n\nThe tests read the workflow files, so several of them `import yaml`. Nothing in\npyproject.toml asked for PyYAML. It arrived through mutmut -> libcst, and it had\nworked for long enough that nobody had reason to look.\n\nOn 2026-09-25 libcst's requirement turned out to be conditional on the\ninterpreter: `pyyaml>=5.2` on most versions, and `pyyaml-ft>=8.0.0` — the\nfree-threading fork, which installs no module called `yaml` — on Python 3.13.\nSo the import resolved on 3.11, 3.12 and 3.14 and not on 3.13. One matrix entry\nout of four, for a package this repository had never mentioned.\n\nA borrowed dependency works until its lender changes its mind, and the lender is\nunder no obligation to say so.\n\nDeclared here rather than worked around: the tests genuinely need to parse YAML,\nand a test that parses a workflow file by regular expression to avoid an import\nis a worse test.\n\nThe other half of this is tests/test_declared_imports.py, which compares what\nthe suite imports against what the project declares, resolving each module to\nthe distribution that really provides it — `yaml` comes from PyYAML — so there\nis no name map to keep in step with anything.\n\nThe rule it enforces is not \"never import what you do not declare\", because\nthere is a legitimate version of that. apkradar reaches into `loguru` on\npurpose: it belongs to androguard, and silencing androguard's logger means\ntouching it. That is fine, and the test that does it says\n`pytest.importorskip(\"loguru\")` first, so it skips rather than breaks if loguru\never goes away. The rule is: what you do not declare, the suite has to survive\nlosing. `import yaml` at module level did not — it stopped collection, and took\n388 unrelated tests with it.\n\nChecked by mutation rather than by assertion alone. Removing the new pyyaml line\nturns the guard red on `yaml`; replacing apkradar's importorskip with a plain\n`import loguru` turns it red on `loguru`; both go green again on restore.",
+      "timestamp": "2026-09-25T23:53:46Z",
+      "ci_passed": true,
+      "author": {
+        "service": "github",
+        "username": "maksimtech",
+        "name": "maksimtech"
+      },
+      "branch": "main",
+      "totals": {
+        "files": 12,
+        "lines": 1257,
+        "hits": 1082,
+        "misses": 175,
+        "partials": 0,
+        "coverage": 86.07,
+        "branches": 0,
+        "methods": 0,
+        "sessions": 1,
+        "complexity": 0.0,
+        "complexity_total": 0.0,
+        "complexity_ratio": 0,
+        "diff": 0
+      },
+      "state": "complete",
+      "parent": "12773350c39f8b24551fb9d001193e8d879f99f7",
+      "report": {
+        "totals": {
+          "files": 12,
+          "lines": 1257,
+          "hits": 1082,
+          "misses": 175,
+          "partials": 0,
+          "coverage": 86.07,
+          "branches": 0,
+          "methods": 0,
+          "messages": 0,
+          "sessions": 1,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            null,
+            0,
+            0,
+            0,
+            0,
+            null,
+            null,
+            0
+          ]
+        },
+        "files": [
+          {
+            "name": "exeradar/__init__.py",
+            "totals": {
+              "files": 0,
+              "lines": 1,
+              "hits": 1,
+              "misses": 0,
+              "partials": 0,
+              "coverage": 100.0,
+              "branches": 0,
+              "methods": 0,
+              "messages": 0,
+              "sessions": 0,
+              "complexity": 0.0,
+              "complexity_total": 0.0,
+              "complexity_ratio": 0,
+              "diff": 0
+            }
+          },
+          {
+            "name": "exeradar/__main__.py",
+            "totals": {
+              "files": 0,
+              "lines": 3,
+              "hits": 0,
+              "misses": 3,
+              "partials": 0,
+              "coverage": 0.0,
+              "branches": 0,
+              "methods": 0,
+              "messages": 0,
+              "sessions": 0,
+              "complexity": 0.0,
+              "complexity_total": 0.0,
+              "complexity_ratio": 0,
+              "diff": 0
+            }
+          },
+          {
+            "name": "exeradar/cli.py",
+            "totals": {
+              "files": 0,
+              "lines": 83,
+              "hits": 67,
+              "misses": 16,
+              "partials": 0,
+              "coverage": 80.72,
+              "branches": 0,
+              "methods": 0,
+              "messages": 0,
+              "sessions": 0,
+              "complexity": 0.0,
+              "complexity_total": 0.0,
+              "complexity_ratio": 0,
+              "diff": 0
+            }
+          },
+          {
+            "name": "exeradar/law_cache.py",
+            "totals": {
+              "files": 0,
+              "lines": 58,
+              "hits": 53,
+              "misses": 5,
+              "partials": 0,
+              "coverage": 91.37,
+              "branches": 0,
+              "methods": 0,
+              "messages": 0,
+              "sessions": 0,
+              "complexity": 0.0,
+              "complexity_total": 0.0,
+              "complexity_ratio": 0,
+              "diff": 0
+            }
+          },
+          {
+            "name": "exeradar/law_checker.py",
+            "totals": {
+              "files": 0,
+              "lines": 140,
+              "hits": 135,
+              "misses": 5,
+              "partials": 0,
+              "coverage": 96.42,
+              "branches": 0,
+              "methods": 0,
+              "messages": 0,
+              "sessions": 0,
+              "complexity": 0.0,
+              "complexity_total": 0.0,
+              "complexity_ratio": 0,
+              "diff": 0
+            }
+          },
+          {
+            "name": "exeradar/law_fetcher.py",
+            "totals": {
+              "files": 0,
+              "lines": 379,
+              "hits": 274,
+              "misses": 105,
+              "partials": 0,
+              "coverage": 72.29,
+              "branches": 0,
+              "methods": 0,
+              "messages": 0,
+              "sessions": 0,
+              "complexity": 0.0,
+              "complexity_total": 0.0,
+              "complexity_ratio": 0,
+              "diff": 0
+            }
+          },
+          {
+            "name": "exeradar/models.py",
+            "totals": {
+              "files": 0,
+              "lines": 61,
+              "hits": 61,
+              "misses": 0,
+              "partials": 0,
+              "coverage": 100.0,
+              "branches": 0,
+              "methods": 0,
+              "messages": 0,
+              "sessions": 0,
+              "complexity": 0.0,
+              "complexity_total": 0.0,
+              "complexity_ratio": 0,
+              "diff": 0
+            }
+          },
+          {
+            "name": "exeradar/report.py",
+            "totals": {
+              "files": 0,
+              "lines": 152,
+              "hits": 148,
+              "misses": 4,
+              "partials": 0,
+              "coverage": 97.36,
+              "branches": 0,
+              "methods": 0,
+              "messages": 0,
+              "sessions": 0,
+              "complexity": 0.0,
+              "complexity_total": 0.0,
+              "complexity_ratio": 0,
+              "diff": 0
+            }
+          },
+          {
+            "name": "exeradar/scanner.py",
+            "totals": {
+              "files": 0,
+              "lines": 90,
+              "hits": 84,
+              "misses": 6,
+              "partials": 0,
+              "coverage": 93.33,
+              "branches": 0,
+              "methods": 0,
+              "messages": 0,
+              "sessions": 0,
+              "complexity": 0.0,
+              "complexity_total": 0.0,
+              "complexity_ratio": 0,
+              "diff": 0
+            }
+          },
+          {
+            "name": "exeradar/signature.py",
+            "totals": {
+              "files": 0,
+              "lines": 136,
+              "hits": 112,
+              "misses": 24,
+              "partials": 0,
+              "coverage": 82.35,
+              "branches": 0,
+              "methods": 0,
+              "messages": 0,
+              "sessions": 0,
+              "complexity": 0.0,
+              "complexity_total": 0.0,
+              "complexity_ratio": 0,
+              "diff": 0
+            }
+          },
+          {
+            "name": "exeradar/strings.py",
+            "totals": {
+              "files": 0,
+              "lines": 88,
+              "hits": 86,
+              "misses": 2,
+              "partials": 0,
+              "coverage": 97.72,
+              "branches": 0,
+              "methods": 0,
+              "messages": 0,
+              "sessions": 0,
+              "complexity": 0.0,
+              "complexity_total": 0.0,
+              "complexity_ratio": 0,
+              "diff": 0
+            }
+          },
+          {
+            "name": "exeradar/formats/pe.py",
+            "totals": {
+              "files": 0,
+              "lines": 66,
+              "hits": 61,
+              "misses": 5,
+              "partials": 0,
+              "coverage": 92.42,
+              "branches": 0,
+              "methods": 0,
+              "messages": 0,
+              "sessions": 0,
+              "complexity": 0.0,
+              "complexity_total": 0.0,
+              "complexity_ratio": 0,
+              "diff": 0
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "_derived": "Not a recording. This is the real 2026-09-26 response for exeradar with totals set back to null, which is the state observed on 2026-09-25 between 23:57 and 00:05 on four repositories freshly activated that evening: activated true, no repo-level totals, and the head of main carrying 86.07. The window closed before it could be recorded; every other field here is as the service sent it.",
+  "status": 200,
+  "body": {
+    "name": "exeradar",
+    "private": false,
+    "updatestamp": "2026-09-25T23:36:38.873095Z",
+    "author": {
+      "service": "github",
+      "username": "maksimtech",
+      "name": "maksimtech"
+    },
+    "language": "python",
+    "branch": "main",
+    "active": true,
+    "activated": true,
+    "totals": null
+  }
+}

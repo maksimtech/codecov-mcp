@@ -1,0 +1,19 @@
+{
+  "url": "https://api.codecov.io/api/v2/github/maksimtech/repos/exeradar/",
+  "status": 200,
+  "body": {
+    "name": "exeradar",
+    "private": false,
+    "updatestamp": "2026-09-25T17:02:42.535894Z",
+    "author": {
+      "service": "github",
+      "username": "maksimtech",
+      "name": "maksimtech"
+    },
+    "language": "python",
+    "branch": "main",
+    "active": false,
+    "activated": false,
+    "totals": null
+  }
+}

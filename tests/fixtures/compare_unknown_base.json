@@ -1,0 +1,7 @@
+{
+  "url": "https://api.codecov.io/api/v2/github/maksimtech/repos/apkradar/compare/?base=774f17e68994bbef5d3bc3d36c260ac81d9740b5&head=9147b24792fa1cb897a486c3406c666e71d3d57b",
+  "status": 404,
+  "body": {
+    "detail": "Commit or branch '774f17e68994bbef5d3bc3d36c260ac81d9740b5' not found!"
+  }
+}

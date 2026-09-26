@@ -1,0 +1,7 @@
+{
+  "url": "https://api.codecov.io/api/v2/github/maksimtech/repos/nonesuch-xyz/",
+  "status": 404,
+  "body": {
+    "detail": "Github API: Not Found"
+  }
+}

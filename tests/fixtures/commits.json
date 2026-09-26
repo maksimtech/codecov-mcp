@@ -1,0 +1,99 @@
+{
+  "url": "https://api.codecov.io/api/v2/github/maksimtech/repos/apkradar/commits/?page_size=3",
+  "status": 200,
+  "body": {
+    "count": 92,
+    "next": "http://api.codecov.io/api/v2/github/maksimtech/repos/apkradar/commits/?page=2&page_size=3",
+    "previous": null,
+    "results": [
+      {
+        "commitid": "9147b24792fa1cb897a486c3406c666e71d3d57b",
+        "message": "fix(docs): render the README example the way a real terminal shows it\n\nThe tables in the `audit` example came out with square corners because the block\nwas generated on a console where rich reports legacy_windows=True: it substitutes\nbox characters it decides the terminal cannot draw, so box.ROUNDED \u2014 which is what\nthe code asks for \u2014 renders square there and rounded everywhere else. The rounded\ncorners the README already had were correct, and regenerating the block replaced\nthem with the wrong glyphs.\n\nThe CI caught it, which is what the test was added for, and then the test itself\nwas the thing that failed: it compared the document against whatever console the\nmachine happened to provide. It now renders through a console it declares \u2014 80\ncolumns, no colour, legacy_windows=False \u2014 so the same bytes come out on any\nmachine, and a new assertion fails if that rendering is ever substituted again.\nThe same run of the suite is what SonarCloud reports on, so both workflows were\nred for this one reason.",
+        "timestamp": "2026-09-25T16:58:27Z",
+        "ci_passed": true,
+        "author": {
+          "service": "github",
+          "username": "maksimtech",
+          "name": "maksimtech"
+        },
+        "branch": "main",
+        "totals": {
+          "files": 13,
+          "lines": 1586,
+          "hits": 1513,
+          "misses": 73,
+          "partials": 0,
+          "coverage": 95.39,
+          "branches": 0,
+          "methods": 0,
+          "sessions": 1,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        },
+        "state": "complete",
+        "parent": "1e90d153404bd173b794a56cef254eb92ef5e4e6"
+      },
+      {
+        "commitid": "1e90d153404bd173b794a56cef254eb92ef5e4e6",
+        "message": "ci: install the declared extra, instead of a list written by hand\n\nsonarcloud.yml ran `pip install -e .` and then named its pytest plugins one by\none, rather than installing the extra this project declares. That gave it a\ndifferent set of packages from tests.yml, and a set nothing keeps in step with\npyproject.toml \u2014 so adding hypothesis broke the SonarCloud run with\n`ModuleNotFoundError: No module named 'hypothesis'` while the test workflow, which\ndoes install the extra, stayed green. codspeed.yml had the same shape and passes\ntoday only because it collects tests/benchmarks alone; it is corrected too,\nrather than left as the next one to break.\n\npytest-codspeed keeps its own line: it is a plugin for that one workflow and is\nnot a dependency of the project.\n\ntests/test_ci_dependencies.py is the guard. Every workflow that invokes pytest\nmust install the declared extra, and must not name a package pyproject.toml does\nnot control. Its detector has to tell a distribution from a flag and from the\neditable target, so it carries the cases that prove it does \u2014 `-e \".[dev]\"`,\n`--only-binary :all:` and a quoted version specifier all had to stop being read\nas package names before the rule said anything true.\n\nThe rule also found a redundancy it was not looking for: tests.yml installed\npytest, pytest-cov, pytest-asyncio and pytest-timeout on top of the extra that\nalready declares all four.",
+        "timestamp": "2026-09-24T17:31:58Z",
+        "ci_passed": true,
+        "author": {
+          "service": "github",
+          "username": "maksimtech",
+          "name": "maksimtech"
+        },
+        "branch": "main",
+        "totals": {
+          "files": 12,
+          "lines": 1300,
+          "hits": 1243,
+          "misses": 57,
+          "partials": 0,
+          "coverage": 95.61,
+          "branches": 0,
+          "methods": 0,
+          "sessions": 1,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        },
+        "state": "complete",
+        "parent": "6e3b686f7c793d295ce445e64c01a7f7ea2fdb22"
+      },
+      {
+        "commitid": "6e3b686f7c793d295ce445e64c01a7f7ea2fdb22",
+        "message": "chore: bump version to 2026.09.32",
+        "timestamp": "2026-09-24T16:53:58Z",
+        "ci_passed": true,
+        "author": {
+          "service": "github",
+          "username": "maksimtech",
+          "name": "maksimtech"
+        },
+        "branch": "main",
+        "totals": {
+          "files": 12,
+          "lines": 1300,
+          "hits": 1243,
+          "misses": 57,
+          "partials": 0,
+          "coverage": 95.61,
+          "branches": 0,
+          "methods": 0,
+          "sessions": 1,
+          "complexity": 0.0,
+          "complexity_total": 0.0,
+          "complexity_ratio": 0,
+          "diff": 0
+        },
+        "state": "complete",
+        "parent": "f9f390a460c020b684742c02eb9414c5ac4ab6ae"
+      }
+    ],
+    "total_pages": 31
+  }
+}
